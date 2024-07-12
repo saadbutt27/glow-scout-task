@@ -1,9 +1,11 @@
-import Image from "next/image";
+import HeroSection from "@/components/home-page/HeroSection";
+import Work from "@/components/home-page/Work";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
+    <main className="">
+      <HeroSection />
+      <Work />
     </main>
   );
 }
