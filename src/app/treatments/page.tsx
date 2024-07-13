@@ -31,7 +31,7 @@ export default async function Goals() {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
-      },
+      },      
     });
 
     if (!res.ok) throw new Error("error insertion");
