@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Wrapper from '../reusable/Wrapper';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import LaserResurfacing from '../../../public/images/laser-resurfacing.svg';
 import ChemicalPeels from '../../../public/images/chemical-peels.svg';
 import AcneBluelight from '../../../public/images/acne-bluelight.svg';
@@ -9,8 +9,13 @@ import Thermage from '../../../public/images/thermage.svg';
 import Botox from '../../../public/images/botox.svg';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+interface Treatment {
+    title: string;
+    image: StaticImageData;
+  }
+
 export default function Trending() {
-    const treatments_data = [
+    const treatments_data: Treatment[] = [
         { title: "Laser Resurfacing", image: LaserResurfacing },
         { title: "Chemical Peels", image: ChemicalPeels },
         { title: "Acne Bluelight Therapy", image: AcneBluelight },

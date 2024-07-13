@@ -10,7 +10,7 @@ export default function Header() {
   const pathname = usePathname();
   const links = [
     { linkName: "Home", linkPath: "/" },
-    { linkName: "Goals", linkPath: "/goals" },
+    { linkName: "Treatments", linkPath: "/treatments" },
     { linkName: "Spas", linkPath: "/spas" },
     { linkName: "Blogs", linkPath: "/blogs" },
   ];
