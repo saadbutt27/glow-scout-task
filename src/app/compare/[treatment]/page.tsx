@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image';
-import { treatments_data, Treatment } from '@/lib/treatments_data';
 import Wrapper from '@/components/reusable/Wrapper';
 import Button from '@/components/reusable/Button';
 import UploadImage from '../UploadImage';
@@ -16,6 +15,9 @@ const getData = async (slug: string): Promise<TreatmentDataType | undefined> => 
   try {
     const response = await fetch(`http://128.199.30.51:5007/api/Treatment/${slug}`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
 
     if (!response.ok) {

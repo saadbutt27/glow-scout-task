@@ -1,7 +1,97 @@
 import React from 'react'
+import Wrapper from '@/components/reusable/Wrapper';
+import Spas from './components/Spas';
 
-export default function Spas() {
+interface OriginalObject {
+    _id: string;
+    name: string;
+    email: string;
+    role: string;
+    loginType: string;
+    isDeleted: boolean;
+    showcaseImages: string[];
+    customerId: string;
+    subscription: string;
+    tier: string;
+    subscriptionId: string | null;
+    rating: number;
+    links: string[];
+    createdAt: string;
+    updatedAt: string;
+    id: string; 
+}
+
+interface SpaDataType {
+  _id: string;
+  name: string;
+}
+
+export default async function Spa() {
+  let filteredData: SpaDataType[] = [];
+
+  try {
+    const res = await fetch("http://128.199.30.51:5007/api/Spas", {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+
+    if (!res.ok) throw new Error("error insertion");
+
+    const result = await res.json();
+    const treatments: OriginalObject[] = result.data.data;
+
+    filteredData = treatments.map(({ _id, name }) => ({
+      _id,
+      name
+    }));
+
+    // console.log(filteredData);
+
+  } catch (error) {
+    console.log(error);
+  }
   return (
-    <div>Spas</div>
+    <main className="border-t-2 border-t-secondary">
+      <Wrapper>
+        <div className="flex flex-col items-center gap-y-2 mt-10">
+            {/* <div className="absolute top-0 right-0 bg-trinary blur-md rounded-full w-96 h-96 transform translate-x-56 -translate-y-16 -z-10"></div> */}
+            <h1 className="text-4xl">Salons & Spas</h1>
+            <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut nibh faucibus.</p>
+            <div className="mt-5 w-[80%] flex items-center gap-x-5 bg-frinary rounded-full py-4 px-6 backdrop-filter backdrop-blur-md border border-white/30 shadow-md">
+              <label className="basis-1/5 flex items-center border-[2px] border-secondary rounded-full p-3 bg-white/20">
+                <select className="block w-full bg-transparent focus:outline-none text-secondary">
+                    <option>Filters</option>
+                    <option>Spa 1</option>
+                    <option>Spa 2</option>
+                    <option>Spa 3</option>
+                    <option>Spa 4</option> 
+                </select>
+              </label>
+              <span className="w-[2px] h-10 bg-[#351120] bg-opacity-20"></span>
+              <label className="basis-[30%] flex items-center border-[2px] border-secondary rounded-full p-3 bg-white/20">
+                <input 
+                  type="text" 
+                  placeholder="Select your location" 
+                  className="block w-full bg-transparent focus:outline-none text-secondary placeholder:text-secondary" 
+                />
+              </label>
+              <span className="w-[2px] h-10 bg-[#351120] bg-opacity-20"></span>
+              <div className="flex-1 flex items-center border-[2px] border-secondary rounded-full bg-white/20 p-1">
+                <input
+                  type="text"
+                  placeholder="Search by Treatment or Spa"
+                  className="flex-1 bg-transparent focus:outline-none text-secondary placeholder:text-secondary px-3"
+                />
+                <button className="bg-secondary text-frinary px-6 py-2 rounded-full">
+                Search
+                </button>
+              </div>
+            </div>
+        </div>
+        <Spas data={filteredData}/>
+      </Wrapper>
+    </main>
   )
 }

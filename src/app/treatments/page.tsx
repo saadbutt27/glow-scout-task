@@ -29,6 +29,9 @@ export default async function Goals() {
   try {
     const res = await fetch("http://128.199.30.51:5007/api/Treatment", {
       method: "GET",
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
 
     if (!res.ok) throw new Error("error insertion");

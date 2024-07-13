@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { treatments_data } from '@/lib/treatments_data';
 import Image from 'next/image';
 
@@ -13,7 +13,7 @@ interface TreatmentsProps {
 }
 
 export default function Treatments ({ setSelectedTreatment, data }:TreatmentsProps) {
-  const [activeSlug, setActiveSlug] = React.useState<string | null>(null);
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
 
   const handleClick = (slug: string) => {
     setSelectedTreatment(slug);
