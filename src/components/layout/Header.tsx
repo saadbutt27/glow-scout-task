@@ -25,7 +25,7 @@ export default function Header() {
         <nav className="flex items-center justify-between my-4 relative">
           <div>
             <Link href={"/"} onClick={handleLinkClick}>
-              <h1 className="text-3xl font-semibold">Glow Scout</h1>
+              <h1 className="text-4xl font-semibold">Glow Scout</h1>
             </Link>
           </div>
 

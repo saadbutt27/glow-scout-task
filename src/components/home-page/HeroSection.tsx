@@ -12,11 +12,11 @@ export default function HeroSection() {
         <div className="relative">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex-1">
-              <h1 className="text-4xl sm:text-6xl leading-snug font-bold">
+              <h1 className="text-4xl sm:text-6xl leading-snug font-semibold">
                 REVEAL YOUR 
                 BEAUTY WITH
               </h1>
-              <h1 className="text-4xl sm:text-6xl leading-snug font-semibold my-1">
+              <h1 className="text-4xl sm:text-6xl leading-snug font-bold my-1">
                 GLOW SCOUT
               </h1>
               <p className="text-lg text-slate-600 mt-4">
@@ -25,7 +25,7 @@ export default function HeroSection() {
                 adipiscing elit. Ut ut nibh faucibus.“
               </p>
               <div className="mt-6">
-                <button className="flex gap-x-2.5 border-2 border-secondary rounded-full px-6 py-2.5 text-secondary font-medium">
+                <button className="flex gap-x-2.5 border-2 border-secondary rounded-full px-6 py-2.5 bg-primary hover:bg-secondary hover:text-primary text-secondary duration-300 font-medium">
                   Sign Up
                   <CircleArrowOutUpRightIcon />
               </button>
