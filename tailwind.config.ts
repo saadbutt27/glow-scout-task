@@ -13,9 +13,11 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      // a custome rotate class
       rotate: {
         '92': '80deg',
       },
+      // adding custome colors which are related to the theme of the website
       colors: {
         'primary': '#F8F8F8',
         'secondary': '#351120',

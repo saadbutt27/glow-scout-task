@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
+      // added pattern(path for cloudinary.com, from where the images are saved)
         remotePatterns: [
           {
             protocol: 'https',
@@ -11,11 +12,5 @@ const nextConfig = {
         ],
       },
 };
-
-// module.exports = {
-//     images: {
-//         domains: ['res.cloudinary.com'],
-//     },
-// };
 
 export default nextConfig;
