@@ -1,17 +1,25 @@
 "use client"
 import React, { useState } from 'react';
 import Wrapper from '../reusable/Wrapper';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Client from '../../../public/images/client.svg';
 
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
+interface Client {
+    image: StaticImageData;
+    name: string;
+    feedback: string;
+    rating: number;
+}
+
 export default function Testiomonials() {
-    const clients_data = [
+    const clients_data:Client[] = [
         {   
             name: "Ashley K.",
             image: Client ,
-            feedback: "It’s a long established fact that glowscout is doing such a great job. It’s a long established fact that glowscout is doing such a great job."
+            feedback: "It’s a long established fact that glowscout is doing such a great job. It’s a long established fact that glowscout is doing such a great job.",
+            rating: 4,
         }
     ];
 
@@ -41,10 +49,15 @@ export default function Testiomonials() {
                                         <p className="text-5xl font-semibold">{client.name}</p>
                                         <p className="text-lg">{client.feedback}</p>
                                         <div className="flex gap-x-1">
-                                            <Star fill="yellow" width={40} height={40} />
-                                            <Star fill="yellow" width={40} height={40} />
-                                            <Star fill="yellow" width={40} height={40} />
-                                            <Star fill="yellow" width={40} height={40} />
+                                            {Array.from({ length: 5 }, (_, i) => (
+                                                <Star
+                                                    key={i}
+                                                    fill={i < client.rating ? "#E5BA1F" : "#fff"}
+                                                    width={40}
+                                                    height={40}
+                                                    strokeWidth={i < client.rating ? 0 : 0.5}
+                                                />
+                                            ))}
                                         </div>
                                     </div>
                                 </>
