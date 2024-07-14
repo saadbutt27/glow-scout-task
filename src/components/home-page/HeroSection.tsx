@@ -4,6 +4,7 @@ import { CircleArrowOutUpRightIcon, SparkleIcon } from "lucide-react"
 
 import Wrapper from "../reusable/Wrapper";
 import Button from "../reusable/Button";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -71,7 +72,9 @@ export default function HeroSection() {
               </select>
             </label>
 
-            <Button text={"Book Now!"}/>
+            <Link href={"/book-now"}> 
+              <Button text={"Book Now!"}/>
+            </Link>
           </div>
         </div>
       </section>
