@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
-import { treatments_data } from '@/lib/treatments_data';
 import Image from 'next/image';
+import { TreatmentDataType } from '@/lib/types';
 
 interface TreatmentsProps {
   setSelectedTreatment: (slug: string | null) => void;
-  data: {
-    _id: string;
-    title: string;
-    description: string;
-    image: string;
-  }[];
+  data: TreatmentDataType[] | undefined;
 }
 
 export default function Treatments ({ setSelectedTreatment, data }:TreatmentsProps) {
@@ -19,6 +14,10 @@ export default function Treatments ({ setSelectedTreatment, data }:TreatmentsPro
     setSelectedTreatment(slug);
     setActiveSlug(slug);
   };
+
+  if (!data) {
+    return <div className="flex justify-center items-center m-5 font-semibold text-3xl">404 - Treatments not found</div>;
+  }
 
   return (
     <section className="relative grid grid-cols-4 gap-10 mt-10">

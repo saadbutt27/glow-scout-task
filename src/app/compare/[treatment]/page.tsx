@@ -3,43 +3,9 @@ import Image from 'next/image';
 import Wrapper from '@/components/reusable/Wrapper';
 import Button from '@/components/reusable/Button';
 import UploadImage from '../UploadImage';
-
-interface TreatmentDataType {
-  _id: string;
-  title: string;
-  description: string;
-  image: string;
-}
-
-const getData = async (slug: string): Promise<TreatmentDataType | undefined> => {
-  try {
-    const response = await fetch(`http://128.199.30.51:5007/api/Treatment/${slug}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch data');
-    }
-
-    const result = await response.json();
-    const { _id, title, description, image } = result.data;
-
-    const treatmentData: TreatmentDataType = {
-      _id,
-      title,
-      description,
-      image
-    };
-
-    return treatmentData;
-  } catch (error) {
-    console.error('Error fetching treatment data:', error);
-    return undefined;
-  }
-};
+import { get_single_treatment } from '@/lib/api_functions';
+import { TreatmentDataType } from '@/lib/types';
+import Link from 'next/link';
 
 
 export default async function CompareTreatment({
@@ -48,10 +14,10 @@ export default async function CompareTreatment({
   params: { treatment: string };
 }) {
   const { treatment } = params
-  const compare_treatment: TreatmentDataType | undefined = await getData(treatment);
+  const compare_treatment: TreatmentDataType | undefined = await get_single_treatment(treatment);
 
   if (!compare_treatment) {
-    return <div>404 - Treatment not found</div>;
+    return <div className="flex justify-center items-center m-5 font-semibold text-3xl">404 - Treatment not found</div>;
   }
 
   return (
@@ -83,7 +49,9 @@ export default async function CompareTreatment({
             <span className="w-[2px] h-screen bg-[#351120] bg-opacity-20"></span>
             <UploadImage />
           </div>
-          <Button text="Next"/>
+          <Link href="#">
+            <Button text="Next"/>
+          </Link>
         </div>
        </Wrapper>
     </main>

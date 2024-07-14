@@ -10,7 +10,7 @@ interface TreatmentDataType {
     image: string;
 }
   
-export default function TreatmentsClient({ data }: { data: TreatmentDataType[] }) {
+export default function TreatmentsClient({ data }: { data: TreatmentDataType[] | undefined }) {
   const [selectedTreatment, setSelectedTreatment] = useState<string | null>(null);
   return (
     <>

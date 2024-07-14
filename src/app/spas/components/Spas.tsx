@@ -8,9 +8,10 @@ interface SpaDataType {
     name: string;
 }
 
-export default function Spas( { data }:{ data: SpaDataType[] }) {
-    // const [selectedSpa, setSelectedSpa] = useState<string | null>(null);
-
+export default function Spas( { data }:{ data: SpaDataType[] | undefined }) {
+  if (!data) {
+    return <div className="flex justify-center items-center m-5 font-semibold text-3xl">404 - Spas not found</div>;
+  }
   return (
     <section className="relative grid grid-cols-4 gap-10 mt-10">
     <div className="absolute top-0 left-0 bg-trinary blur-lg rounded-full w-96 h-96 -translate-x-80 translate-y-48 -z-10"></div>

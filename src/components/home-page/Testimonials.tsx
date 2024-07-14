@@ -5,6 +5,7 @@ import Image, { StaticImageData } from 'next/image';
 import Client from '../../../public/images/client.svg';
 
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import StarRatings from '../reusable/StarRatings';
 
 interface Client {
     image: StaticImageData;
@@ -48,17 +49,7 @@ export default function Testiomonials() {
                                     <div className="space-y-4">
                                         <p className="text-5xl font-semibold">{client.name}</p>
                                         <p className="text-lg">{client.feedback}</p>
-                                        <div className="flex gap-x-1">
-                                            {Array.from({ length: 5 }, (_, i) => (
-                                                <Star
-                                                    key={i}
-                                                    fill={i < client.rating ? "#E5BA1F" : "#fff"}
-                                                    width={40}
-                                                    height={40}
-                                                    strokeWidth={i < client.rating ? 0 : 0.5}
-                                                />
-                                            ))}
-                                        </div>
+                                        <StarRatings ratings={client.rating} size={40}/>
                                     </div>
                                 </>
                             ))}

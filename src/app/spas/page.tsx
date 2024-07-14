@@ -1,57 +1,12 @@
 import React from 'react'
 import Wrapper from '@/components/reusable/Wrapper';
 import Spas from './components/Spas';
-
-interface OriginalObject {
-    _id: string;
-    name: string;
-    email: string;
-    role: string;
-    loginType: string;
-    isDeleted: boolean;
-    showcaseImages: string[];
-    customerId: string;
-    subscription: string;
-    tier: string;
-    subscriptionId: string | null;
-    rating: number;
-    links: string[];
-    createdAt: string;
-    updatedAt: string;
-    id: string; 
-}
-
-interface SpaDataType {
-  _id: string;
-  name: string;
-}
+import { get_spas } from '@/lib/api_functions';
+import { SpaDataType } from '@/lib/types';
 
 export default async function Spa() {
-  let filteredData: SpaDataType[] = [];
+  const filteredData: SpaDataType[] | undefined = await get_spas();
 
-  try {
-    const res = await fetch("http://128.199.30.51:5007/api/Spas", {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-
-    if (!res.ok) throw new Error("error insertion");
-
-    const result = await res.json();
-    const treatments: OriginalObject[] = result.data.data;
-
-    filteredData = treatments.map(({ _id, name }) => ({
-      _id,
-      name
-    }));
-
-    // console.log(filteredData);
-
-  } catch (error) {
-    console.log(error);
-  }
   return (
     <main className="border-t-2 border-t-secondary">
       <Wrapper>
