@@ -8,6 +8,7 @@ import StarRatings from '@/components/reusable/StarRatings';
 import Link from 'next/link';
 import Favorite from './Favorite';
 
+// This components hsow the details(images and other details) of the spa and we can add the spa to favorites by clicking on heart
 export default function SpaDetails({name}: {name:string}) {
   return (
     <section className="bg-primary flex items-start w-full mt-5">

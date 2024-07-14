@@ -2,7 +2,8 @@ import React from 'react'
 import Wrapper from '../reusable/Wrapper'
 import { CircleArrowOutUpRightIcon } from 'lucide-react'
 
-export default function About() {
+// This is last section which has a button to sign up as business
+export default function Business() {
   return (
     <section className="mt-20 py-20">
     <Wrapper>

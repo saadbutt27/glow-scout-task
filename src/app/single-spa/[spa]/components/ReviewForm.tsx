@@ -2,8 +2,11 @@
 import React, { useState } from 'react'
 import { Star } from 'lucide-react'
 
+// This is a small revies form which we v=can fill for the spa, it has a feed back and a 5-star based rating, we can select any 
+// numbers of stars
 export default function ReviewForm() {
-    const [rating, setRating] = useState(0);
+  // state to store rating to uodate colors in stars
+  const [rating, setRating] = useState(0);
 
   return (
     <div className="self-start w-full flex flex-col justify-start gap-y-8 border-2 border-secondary rounded-lg p-10">
@@ -19,7 +22,6 @@ export default function ReviewForm() {
                     placeholder="Write you review here..." 
                     required
                 />
-                {/* <label htmlFor="review" className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-secondary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"></label> */}
             </div>
             <div className="basis-1/4 flex flex-col gap-y-1">
                 Ratings

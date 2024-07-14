@@ -2,6 +2,7 @@ import React from 'react'
 import Wrapper from '../reusable/Wrapper'
 import Button from '../reusable/Button'
 
+// This is the second section, which shows the work we do at Glow Scout
 export default function Work() {
   return (
       <section className="mt-20 bg-trinary p-20">
@@ -21,6 +22,7 @@ export default function Work() {
   )
 }
 
+// a function to render individual card of work
 function workCard(i:number, title:string) {
     return(
         <div className="text-xl lg:text-3xl flex flex-col justify-between items-center bg-frinary rounded-md p-5 lg:w-44 lg:h-80 w-32 h-60">

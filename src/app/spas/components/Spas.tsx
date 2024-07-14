@@ -2,12 +2,10 @@ import React, { useState } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import SpaImage from "../../../../public/images/SpaImage.svg"
+import { SpaDataType } from '@/lib/types';
 
-interface SpaDataType {
-    _id: string;
-    name: string;
-}
-
+// This a child client compoent which lists all the spas
+// Whena user clieck on any spa, it''ll get you to the detailed page of that spa dynamically
 export default function Spas( { data }:{ data: SpaDataType[] | undefined }) {
   if (!data) {
     return <div className="flex justify-center items-center m-5 font-semibold text-3xl">404 - Spas not found</div>;

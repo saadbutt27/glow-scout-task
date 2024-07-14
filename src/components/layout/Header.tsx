@@ -4,10 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "../reusable/Button";
 import Wrapper from "../reusable/Wrapper";
+import { Menu } from "lucide-react"
 
+// Header of every page. it shows logo, navigation links, and sign in/up button
 export default function Header() {
-  const [toggleNav, setToggleNav] = useState(false); // make responsive navbar with hamburger menu
+  // toggle state make responsive navbar with hamburger menu
+  const [toggleNav, setToggleNav] = useState(false); 
+
+  // usePathname gets the path of the selected or specified link
   const pathname = usePathname();
+
+  // A list of link to be used in navigation menu
   const links = [
     { linkName: "Home", linkPath: "/" },
     { linkName: "Treatments", linkPath: "/treatments" },
@@ -15,6 +22,7 @@ export default function Header() {
     { linkName: "Blogs", linkPath: "/blogs" },
   ];
 
+  // A helper function to set toggle
   const handleLinkClick = () => {
     setToggleNav(false); // Close the sidebar when a link is clicked
   };
@@ -29,49 +37,27 @@ export default function Header() {
             </Link>
           </div>
 
+          {/* This Hamburger menu icon will be hidden in medium or above screen */}
           <button
             className={`block md:hidden ${toggleNav ? "hidden" : "block"}`}
             onClick={() => setToggleNav(!toggleNav)}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
-              />
-            </svg>
+            <Menu strokeWidth={1} height={30} width={30}/>
           </button>
 
-          {/* This one is for mobile view */}
+          {/* This is for mobile view */}
           <div
             className={`md:hidden absolute w-full bg-white text-black flex flex-col mx-auto text-center gap-y-8 shadow-lg ${
               toggleNav ? " top-0 duration-300" : " -top-96 duration-300"
             }`}
           >
+            {/* Hamburger menu icon */}
             <button onClick={() => setToggleNav(!toggleNav)} className="self-end">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <Menu strokeWidth={1} height={30} width={30}/>
             </button>
 
+            {/* Listing the navigation menu with their links, whenever user will navigate to a link, 
+              usePathname will match the link path, and change the opacity of that menu item */}
             <div>
               <ul className="text-lg font-medium">
                 {links.map((link, index) => (
@@ -92,7 +78,8 @@ export default function Header() {
               </ul>
             </div>
           </div>
-          {/* This one is for computer's view */}
+
+          {/* This one is for medium and larger screens view */}
           <div className="hidden md:block">
             <ul className="flex gap-x-14 text-lg font-medium">
               {links.map((link, index) => (

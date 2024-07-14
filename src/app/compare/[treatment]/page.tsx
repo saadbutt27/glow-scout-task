@@ -7,24 +7,31 @@ import { get_single_treatment } from '@/lib/api_functions';
 import { TreatmentDataType } from '@/lib/types';
 import Link from 'next/link';
 
-
+// This is a server components and a page created using Next.js dynamic routing
+// These pages are created on runtime, because we do not know which treatment user wants to compare, ahead of time
+// This compoents accepts treatment id from params(parameter which it gets from url), and based on that fetches data from
+// backend to dynamicaly render the page
 export default async function CompareTreatment({
   params,
 }: {
   params: { treatment: string };
 }) {
+  // Get tratment id from params
   const { treatment } = params
+
+  // Calling a fucntion to hit the API to get a single treatment
   const compare_treatment: TreatmentDataType | undefined = await get_single_treatment(treatment);
 
+  // Renders if treatment not found
   if (!compare_treatment) {
     return <div className="flex justify-center items-center m-5 font-semibold text-3xl">404 - Treatment not found</div>;
   }
 
+  // Renders if treatment is found
   return (
     <main className="border-t-2 border-t-secondary">
       <Wrapper>
         <div className="flex flex-col items-center gap-y-2 mt-10">
-        {/* Blurred Divs */}
         <div className="absolute top-36 -right-10 w-96 h-72 bg-trinary rounded-t-full blur-xl -z-10 -rotate-90"></div>
         <div className="absolute top-[35rem] -left-10  w-96 h-72 rounded-t-full bg-trinary blur-xl -z-10 rotate-90"></div>
         <h1 className="text-4xl">Compare Treatments</h1>

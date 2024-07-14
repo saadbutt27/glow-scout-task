@@ -6,11 +6,13 @@ import Wrapper from "../reusable/Wrapper";
 import Button from "../reusable/Button";
 import Link from "next/link";
 
+// Hero section, first section of home page, it shows some text an image and a glasses tab which has a link to Booking page
 export default function HeroSection() {
   return (
     <Wrapper>
       <section className="mt-10">
         <div className="relative">
+          {/* Container of Glow Scouts Introduction and Model's image */}
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex-1">
               <h1 className="text-4xl sm:text-6xl leading-snug font-semibold">
@@ -50,6 +52,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-trinary rounded-full blur-3xl z-0"></div>
             </div>
           </div>
+          {/* Here we an select goals, location, and go to booking page */}
           <div className="absolute z-20 w-full -translate-y-10 flex items-center gap-x-4 bg-trinary/30 rounded-full py-5 px-10 backdrop-filter backdrop-blur-md border border-white/30 shadow-md">
             <label className="flex flex-1 items-center border-[2px] border-secondary rounded-full p-3 bg-white/20">
               <select className="block w-full bg-transparent focus:outline-none text-secondary">
@@ -71,10 +74,12 @@ export default function HeroSection() {
               </select>
             </label>
 
+            {/* Here is the link to book-now page */}
             <Link href={"/book-now"}> 
               <Button text={"Book Now!"}/>
             </Link>
           </div>
+
         </div>
       </section>
     </Wrapper>

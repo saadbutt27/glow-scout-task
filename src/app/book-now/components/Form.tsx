@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Button from '@/components/reusable/Button';
 import { Clock5, MapPin } from 'lucide-react'
 
+// Data types for form data
 interface FormData {
     firstName: string;
     lastName: string;
@@ -18,6 +19,9 @@ interface FormData {
     comment: string;
 }
 
+// This is a Client side compoent in Book page, showing the form  to get details of the customer and their preferred date
+// and time for the treatment in spa
+// It saves the client data, later impelmented for POST requets for Booking records
 export default function Form() {
     const [formData, setFormData] = useState<FormData>({
         firstName: '',
@@ -34,6 +38,7 @@ export default function Form() {
         comment: '',
     });
 
+    // Helper fucntion for input change in state varaibles of form data object
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -43,6 +48,7 @@ export default function Form() {
         setFormData({ ...formData, period: selectedPeriod });
       };
     
+      // helper fucntion to submit form data currently only printing the form values to browser's console
       const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(formData); // Replace with your data handling logic

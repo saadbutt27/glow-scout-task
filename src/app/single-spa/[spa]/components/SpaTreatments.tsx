@@ -3,12 +3,17 @@ import { get_treatments } from '@/lib/api_functions';
 import { TreatmentDataType } from '@/lib/types'; 
 import Image from 'next/image';
 
+// this page shows the treatments offered in the spa
 export default async function SpaTreatments() {
+// Calling a fucntion to hit the API to get a single treatment
   const filteredData: TreatmentDataType[] | undefined = await get_treatments();
   
+  // Renders if treatment not found
   if (!filteredData) {
     return <div className="flex justify-center items-center m-5 font-semibold text-3xl">404 - Spas not found</div>;
   }
+
+  // Renders if treatment is found
   return (
     <section>
         <div className="flex flex-col items-center gap-y-2 mt-10">

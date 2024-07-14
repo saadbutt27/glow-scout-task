@@ -4,13 +4,16 @@ import React from 'react'
 import ReviewForm from './ReviewForm';
 import Link from 'next/link';
 
+// a client interface
 interface Client {
     name: string;
     feedback: string;
     rating: number;
 }
 
+// This component will list the revies by our clients for this spa
 export default function SpaReviews() {
+    // static data for revies of clients
     const clients_data:Client[] = [
         {   
             name: "Ashley K.",

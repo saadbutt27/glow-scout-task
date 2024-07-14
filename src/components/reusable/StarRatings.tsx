@@ -1,6 +1,8 @@
 import React from 'react'
 import { Star } from 'lucide-react'
 
+// This reusable component imports Star icon form lucide react library
+// It will show the ratings of the treatment/spas out of 5 stars
 export default function StarRatings({ratings, size} : {ratings:number, size:number}) {
   return (
     <div className="flex gap-x-1">

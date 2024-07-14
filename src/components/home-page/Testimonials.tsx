@@ -4,9 +4,10 @@ import Wrapper from '../reusable/Wrapper';
 import Image, { StaticImageData } from 'next/image';
 import Client from '../../../public/images/client.svg';
 
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import StarRatings from '../reusable/StarRatings';
 
+// An interface representing a client
 interface Client {
     image: StaticImageData;
     name: string;
@@ -14,7 +15,9 @@ interface Client {
     rating: number;
 }
 
+// This is fourth section, which implements a carousel to enlist out prestigious slients
 export default function Testiomonials() {
+    // Here is some static data for clients
     const clients_data:Client[] = [
         {   
             name: "Ashley K.",
@@ -24,6 +27,7 @@ export default function Testiomonials() {
         }
     ];
 
+    // This is the state variable for the carousel, and functions for netx and previous buttons
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {

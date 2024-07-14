@@ -2,14 +2,11 @@
 import React, { useState } from 'react'
 import Treatments from './Treatments'
 import Link from 'next/link'
+import { TreatmentDataType } from '@/lib/types'
 
-interface TreatmentDataType {
-    _id: string;
-    title: string;
-    description: string;
-    image: string;
-}
-  
+// This is treatment page's client component because we used state
+// The button Compare treatments will navigate to compare treatments page after getting the state value from its another
+// child component which is listing down all treatments  
 export default function TreatmentsClient({ data }: { data: TreatmentDataType[] | undefined }) {
   const [selectedTreatment, setSelectedTreatment] = useState<string | null>(null);
   return (

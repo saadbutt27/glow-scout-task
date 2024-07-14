@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 import Image from 'next/image';
 import { TreatmentDataType } from '@/lib/types';
 
+// Data types for props
 interface TreatmentsProps {
   setSelectedTreatment: (slug: string | null) => void;
   data: TreatmentDataType[] | undefined;
 }
 
+// This client component lists all treatments
+// It take data of treatements in props and steate updater function to update the state to get to the required comparison page
 export default function Treatments ({ setSelectedTreatment, data }:TreatmentsProps) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
 
+  // A helper function which set the tratment id as slud to dynamically render compare treatment page
   const handleClick = (slug: string) => {
     setSelectedTreatment(slug);
     setActiveSlug(slug);

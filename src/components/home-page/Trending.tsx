@@ -9,12 +9,15 @@ import Thermage from '../../../public/images/thermage.svg';
 import Botox from '../../../public/images/botox.svg';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+// An interface for trending treatments data
 interface Treatment {
     title: string;
     image: StaticImageData;
   }
 
+// This is third section, which has a caraousel showing trending treatments
 export default function Trending() {
+    // Here is some static data for trending treatments, it is different from the data we call from backend
     const treatments_data: Treatment[] = [
         { title: "Laser Resurfacing", image: LaserResurfacing },
         { title: "Chemical Peels", image: ChemicalPeels },
@@ -23,6 +26,7 @@ export default function Trending() {
         { title: "Botox", image: Botox }
     ];
 
+    // This is the state for the carousel, and below are the next and previous functions for next, and previous buttons
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {
@@ -35,8 +39,6 @@ export default function Trending() {
 
     return (
         <section className="mt-10 bg-primary relative">
-            {/* <div className="absolute top-36 -right-10 w-96 h-72 bg-trinary rounded-t-full blur-xl -z-10 -rotate-90"></div>
-            <div className="absolute top-[35rem] -left-10  w-96 h-72 rounded-t-full bg-trinary blur-xl -z-10 rotate-90"></div> */}
             <Wrapper>
                 <div className="relative flex flex-col justify-between items-center gap-y-10">
                     <h2 className="text-4xl mt-16 z-10">Trending Treatments</h2>

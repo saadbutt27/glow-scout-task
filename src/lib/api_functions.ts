@@ -1,5 +1,6 @@
 import { OriginalObjectTreatment, OriginalObjectSpa, TreatmentDataType, SpaDataType } from "./types";
 
+// Frontend API call to get all treatments
 export const get_treatments = async (): Promise<TreatmentDataType[] | undefined> => {
     let filteredData: TreatmentDataType[] = [];
     
@@ -31,6 +32,7 @@ export const get_treatments = async (): Promise<TreatmentDataType[] | undefined>
     }
 };
 
+// Frontend API call to get a single treatments
 export const get_single_treatment = async (slug: string): Promise<TreatmentDataType | undefined> => {
     try {
       const response = await fetch(`http://128.199.30.51:5007/api/Treatment/${slug}`, {
@@ -61,6 +63,7 @@ export const get_single_treatment = async (slug: string): Promise<TreatmentDataT
     }
 };
 
+// Frontend API call to get all spas
 export const get_spas = async (): Promise<SpaDataType[] | undefined> => {
     let filteredData: SpaDataType[] = [];
 
@@ -90,6 +93,7 @@ export const get_spas = async (): Promise<SpaDataType[] | undefined> => {
     }
 } 
 
+// Frontend API call to get a single spas
 export const get_single_spa = async (slug: string): Promise<SpaDataType | undefined> => {
     try {
       const response = await fetch(`http://128.199.30.51:5007/api/Spas/${slug}`, {

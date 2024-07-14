@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { Plus } from 'lucide-react';
 
+// This is a child client compoent to upload an image which will be shown in the browser
 export default function UploadImage() {
     const [uploadedImage, setUploadedImage] = useState<string | null>(null);
 

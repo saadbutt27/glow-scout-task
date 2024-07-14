@@ -1,3 +1,4 @@
+// An interface for types of original object returning from API call for treatments
 export interface OriginalObjectTreatment {
     _id: string;
     title: string;
@@ -12,6 +13,7 @@ export interface OriginalObjectTreatment {
     id: string;
 } 
 
+// An interface for types of required object of treatments
 export interface TreatmentDataType {
     _id: string;
     title: string;
@@ -19,11 +21,13 @@ export interface TreatmentDataType {
     image: string;
 }  
 
+// An interface for types of required object of spas
 export interface SpaDataType {
     _id: string;
     name: string;
 }
 
+// An interface for types of original object returning from API call for spas
 export interface OriginalObjectSpa {
     _id: string;
     name: string;
