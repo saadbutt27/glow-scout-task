@@ -44,8 +44,7 @@ export default function HeroSection() {
                 <Image
                   src={WomanImage}
                   alt="Hero Image"
-                  objectFit="cover"
-                  className="relative z-10 w-full h-full"
+                  className="relative z-10 w-full h-full object-cover"
                 />
               </div>
               <div className="absolute inset-0 bg-trinary rounded-full blur-3xl z-0"></div>

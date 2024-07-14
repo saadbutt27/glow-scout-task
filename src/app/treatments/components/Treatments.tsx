@@ -31,13 +31,11 @@ export default function Treatments ({ setSelectedTreatment, data }:TreatmentsPro
               <div className="relative">
                 <div className="rounded-lg overflow-hidden shadow-inner">
                   <Image
-                    className="rounded-lg shadow-inner"
+                    className="rounded-lg shadow-inner object-cover"
                     src={treatment.image}
                     alt={treatment.title}
-                    layout="responsive"
-                    objectFit="cover"
                     width={300}
-                    height={200}
+                    height={300}
                   />
                   <div className="absolute inset-0 rounded-lg shadow-inner" style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.5)' }}></div>
                   <p className="absolute top-0 right-0 bg-trinary text-secondary rounded-bl-md rounded-tr-md px-3 py-2 shadow-inner">Lorem ipsum</p>

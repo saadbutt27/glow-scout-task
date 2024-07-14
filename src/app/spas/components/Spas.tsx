@@ -16,16 +16,14 @@ export default function Spas( { data }:{ data: SpaDataType[] | undefined }) {
     <section className="grid grid-cols-4 gap-10 mt-10">
       <div className="absolute top-[35rem] -left-10  w-96 h-72 rounded-t-full bg-trinary blur-xl -z-10 rotate-90"></div>
       {data.map((spa, index) => (
-        <Link href={`/single-spa/${spa._id}`}>
-            <div key={index} className={`min-w-[25%] cursor-pointer hover:scale-105 duration-300`}> 
+        <Link key={index}  href={`/single-spa/${spa._id}`}>
+            <div className={`min-w-[25%] cursor-pointer hover:scale-105 duration-300`}> 
             <div className="relative">
                 <div className="rounded-lg overflow-hidden shadow-inner">
                 <Image
-                    className="rounded-lg shadow-inner"
+                    className="rounded-lg shadow-inner object-cover"
                     src={SpaImage}
                     alt={spa.name}
-                    layout="responsive"
-                    objectFit="cover"
                     width={300}
                     height={200}
                 />

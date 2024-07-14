@@ -44,14 +44,14 @@ export default function Testiomonials() {
                         <div className="flex gap-x-10 items-center transition-transform duration-500"
                             style={{ transform: `translateX(-${currentIndex * 25}%)` }}>
                             {clients_data.map((client, index) => (
-                                <>
+                                <div key={index} className="flex items-center space-x-4">
                                     <Image src={client.image} alt="client" className="rounded-lg" />
                                     <div className="space-y-4">
                                         <p className="text-5xl font-semibold">{client.name}</p>
                                         <p className="text-lg">{client.feedback}</p>
                                         <StarRatings ratings={client.rating} size={40}/>
                                     </div>
-                                </>
+                                </div>
                             ))}
                         </div>
                         <ChevronRight height={60} width={60} onClick={nextSlide} className="cursor-pointer" />
