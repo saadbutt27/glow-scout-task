@@ -23,8 +23,10 @@ export default async function CompareTreatment({
   return (
     <main className="border-t-2 border-t-secondary">
       <Wrapper>
-        <div className="relative flex flex-col items-center gap-y-2 mt-10">
-        <div className="absolute top-0 left-0 bg-trinary blur-lg rounded-full w-96 h-96 -translate-x-44 translate-y-[28rem] -z-10"></div>
+        <div className="flex flex-col items-center gap-y-2 mt-10">
+        {/* Blurred Divs */}
+        <div className="absolute top-36 -right-10 w-96 h-72 bg-trinary rounded-t-full blur-xl -z-10 -rotate-90"></div>
+        <div className="absolute top-[35rem] -left-10  w-96 h-72 rounded-t-full bg-trinary blur-xl -z-10 rotate-90"></div>
         <h1 className="text-4xl">Compare Treatments</h1>
           <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut nibh faucibus.</p>
           <div className="mt-5 flex justify-between items-start flex-1 gap-x-8">

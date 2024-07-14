@@ -20,8 +20,8 @@ export default function Treatments ({ setSelectedTreatment, data }:TreatmentsPro
   }
 
   return (
-    <section className="relative grid grid-cols-4 gap-10 mt-10">
-      <div className="absolute top-0 left-0 bg-trinary blur-lg rounded-full w-96 h-96 -translate-x-80 translate-y-48 -z-10"></div>
+    <section className="grid grid-cols-4 gap-10 mt-10">
+        <div className="absolute top-[35rem] -left-10  w-96 h-72 rounded-t-full bg-trinary blur-xl -z-10 rotate-90"></div>
         {data.map((treatment, index) => (
             <div
               key={index}

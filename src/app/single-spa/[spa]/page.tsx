@@ -21,6 +21,9 @@ export default async function SingleSpa({
 
   return (
     <main className="border-t-2 border-t-secondary">
+      {/* Blurred Divs */}
+      <div className="absolute top-36 -right-10 w-96 h-72 bg-trinary rounded-t-full blur-xl -z-10 -rotate-90"></div>
+      <div className="absolute top-[35rem] -left-10  w-96 h-72 rounded-t-full bg-trinary blur-xl -z-10 rotate-90"></div>
       <Wrapper>
         <div className="flex flex-col mt-10">
           <h1 className="text-4xl font-semibold">{single_spa.name.toUpperCase()}</h1>

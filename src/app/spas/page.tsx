@@ -11,7 +11,7 @@ export default async function Spa() {
     <main className="border-t-2 border-t-secondary">
       <Wrapper>
         <div className="flex flex-col items-center gap-y-2 mt-10">
-            {/* <div className="absolute top-0 right-0 bg-trinary blur-md rounded-full w-96 h-96 transform translate-x-56 -translate-y-16 -z-10"></div> */}
+            <div className="absolute top-36 -right-10 w-96 h-72 bg-trinary rounded-t-full blur-xl -z-10 -rotate-90"></div>
             <h1 className="text-4xl">Salons & Spas</h1>
             <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut nibh faucibus.</p>
             <div className="mt-5 w-[80%] flex items-center gap-x-5 bg-frinary rounded-full py-4 px-6 backdrop-filter backdrop-blur-md border border-white/30 shadow-md">

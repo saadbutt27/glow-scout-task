@@ -3,14 +3,14 @@ import Image from 'next/image';
 import SpaImage1 from "../../../../../public/images/spa-main.svg"
 import SpaImage2 from "../../../../../public/images/spa-naim.svg"
 import SpaImage3 from "../../../../../public/images/SpaImage.svg"
-import { Heart, Clock5, MapPin } from "lucide-react"
+import { Clock5, MapPin } from "lucide-react"
 import StarRatings from '@/components/reusable/StarRatings';
 import Link from 'next/link';
 import Favorite from './Favorite';
 
 export default function SpaDetails({name}: {name:string}) {
   return (
-    <section className="flex items-start w-full mt-5">
+    <section className="bg-primary flex items-start w-full mt-5">
         <div className="basis-3/5 flex gap-2 w-full">
             {/* Images */}
             <div className="relative w-3/5">
